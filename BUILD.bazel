@@ -1,0 +1,20 @@
+load("//tools:defaults.bzl", "npm_package")
+
+npm_package(
+    name = "npm_package",
+    srcs = [
+        "check_version.js",
+        "package.json",
+        "protractor-utils.js",
+        "//src:package_assets",
+    ],
+    packages = [
+        "//docs",
+    ],
+    tags = ["release-with-framework"],
+    deps = [
+        "//src/ng_package:lib",
+        "//src/ngc-wrapped:ngc_lib",
+        "//src/protractor/utils",
+    ],
+)
